@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://yhg1ukve6f71"]
+
+[ext_resource type="Script" uid="uid://b5s21p07di11s" path="res://scripts/enemy_tank.gd" id="1_i4cgk"]
+[ext_resource type="ArrayMesh" uid="uid://n4kjq7t74iv7" path="res://assets/tank/14079_WWII_Tank_UK_Cromwell_v1_L2.obj" id="3_76ijn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4cgk"]
+
+[node name="EnemyTank" type="CharacterBody3D" unique_id=221053036 groups=["enemy"]]
+script = ExtResource("1_i4cgk")
+
+[node name="TankModel" type="Node3D" parent="." unique_id=544095914]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="BoatPos" type="Node3D" parent="TankModel" unique_id=1094238553]
+transform = Transform3D(1.1666665, 0, 1.5298985e-08, 0, 1.1666665, 2.520931e-22, 1.5298985e-08, 2.520931e-22, 0.8166666, 0, 0.23121633, -0.017867109)
+
+[node name="ShootPos" type="Node3D" parent="TankModel" unique_id=27376713]
+transform = Transform3D(0.7, 0, 3.0291993e-08, 0, 0.7, 4.9914443e-22, 9.179392e-09, 1.5125589e-22, 1.617, 0, 0.90014213, -0.5)
+
+[node name="TankModel2" type="MeshInstance3D" parent="TankModel" unique_id=1698494147]
+transform = Transform3D(-2.6226834e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 0.6, 4.371139e-08, 1.9106855e-15, 0, -0.88180095, 0)
+mesh = ExtResource("3_76ijn")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=675666585]
+transform = Transform3D(1.2, 0, 0, 0, 0.908, 0, 0, 0, 1.4878325, 0, 0.45230877, -0.026975539)
+shape = SubResource("BoxShape3D_i4cgk")

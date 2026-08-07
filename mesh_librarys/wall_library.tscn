@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://do2yqc5oybwqh"]
+
+[ext_resource type="PackedScene" uid="uid://ohbtgjm63ons" path="res://assets/kenney_pirate-kit/Models/GLB format/castle-door.glb" id="1_4tclk"]
+[ext_resource type="PackedScene" uid="uid://dnkh8j51f1gc6" path="res://assets/kenney_pirate-kit/Models/GLB format/castle-gate.glb" id="2_ncjfe"]
+[ext_resource type="PackedScene" uid="uid://bc4q3wwliu0eg" path="res://assets/kenney_pirate-kit/Models/GLB format/castle-wall.glb" id="3_t2vyk"]
+[ext_resource type="PackedScene" uid="uid://b5mav1owva6jw" path="res://assets/kenney_pirate-kit/Models/GLB format/castle-window.glb" id="4_6sem3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fyni6"]
+points = PackedVector3Array(-0.00019574165, 1.5996083, 1.8000001, -0.4336335, 1.4212998, 1.8000001, 0.4334377, 1.4212998, 1.8000001, 1, 4.2996473, 1.2518402, -1, 4.2996473, 1.2518402, -0.61315584, 0.9906029, 1.8000001, 0.6129601, 0.9906029, 1.8000001, 1, 4.3999996, 1.1619421, 1, 0, 1.3996867, -1, 4.3999996, 1.1619421, -1, 0, 1.3996867, -0.61315584, 0, 1.8000001, 0.6129601, 0, 1.8000001, 1, 4.3999996, -1.1622553, 1, 0, -1.4, -1, 4.3999996, -1.1622553, -1, 0, -1.4, 1, 4.2996473, -1.2521534, -1, 4.2996473, -1.2521534)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qm383"]
+points = PackedVector3Array(-2, 0, -1.4000392, -1.3003132, 0, -1.8, -2, 0, 1.3996866, -2, 4.2996473, -1.2523885, -0.91581833, 2.7973764, -1.5001174, -0.12881756, 3.1815581, -1.5001174, 1.2999218, 0, -1.8, -1.3003132, 0, 1.8, -2, 4.2996473, 1.2520359, -2, 4.3999996, -1.162177, 2, 4.2996473, -1.2523885, 0.12842607, 3.1815581, -1.5001174, 0.91542673, 2.7973764, -1.5001174, 2, 0, -1.4000392, -0.91581833, 2.7973764, 1.4997649, 1.2999218, 0, 1.8, -0.12881756, 3.1815581, 1.4997649, 2, 4.2996473, 1.2520359, -2, 4.3999996, 1.1618245, 2, 4.3999996, -1.162177, 2, 0, 1.3996866, 0.91542673, 2.7973764, 1.4997649, 0.12842607, 3.1815581, 1.4997649, 2, 4.3999996, 1.1618245)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1ju1r"]
+points = PackedVector3Array(1, 0, 1.399726, -1, 0, 1.399726, 1, 0, -1.4, 1, 4.2996473, 1.2519969, -1, 0, -1.4, -1, 4.2996473, 1.2519969, 1, 4.2996473, -1.2522709, 1, 4.3999996, 1.1618246, -1, 4.2996473, -1.2522709, -1, 4.3999996, 1.1618246, 1, 4.3999996, -1.1620986, -1, 4.3999996, -1.1620986)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7cx38"]
+points = PackedVector3Array(1, 0, 1.399726, -1, 0, 1.399726, 1, 0, -1.4, 1, 4.2996473, 1.2519969, -1, 0, -1.4, -1, 4.2996473, 1.2519969, 1, 4.2996473, -1.2522709, 1, 4.3999996, 1.1618246, -1, 4.2996473, -1.2522709, -1, 4.3999996, 1.1618246, 1, 4.3999996, -1.1620986, -1, 4.3999996, -1.1620986)
+
+[node name="WallLibrary" type="Node3D" unique_id=1142960268]
+
+[node name="castle-door2" parent="." unique_id=333860055 instance=ExtResource("1_4tclk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="castle-door2/castle-door" parent_id_path=PackedInt32Array(333860055, 2016185584) index="0" unique_id=279974693]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="castle-door2/castle-door/StaticBody3D" unique_id=932547284]
+shape = SubResource("ConvexPolygonShape3D_fyni6")
+
+[node name="castle-gate2" parent="." unique_id=1411004051 instance=ExtResource("2_ncjfe")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="castle-gate2/castle-gate" parent_id_path=PackedInt32Array(1411004051, 1247846764) index="0" unique_id=1894252597]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="castle-gate2/castle-gate/StaticBody3D" unique_id=780991780]
+shape = SubResource("ConvexPolygonShape3D_qm383")
+
+[node name="castle-wall2" parent="." unique_id=1316009239 instance=ExtResource("3_t2vyk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="castle-wall2/castle-wall" parent_id_path=PackedInt32Array(1316009239, 190625440) index="0" unique_id=1839664465]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="castle-wall2/castle-wall/StaticBody3D" unique_id=1732656139]
+shape = SubResource("ConvexPolygonShape3D_1ju1r")
+
+[node name="castle-window2" parent="." unique_id=364506923 instance=ExtResource("4_6sem3")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="castle-window2/castle-window" parent_id_path=PackedInt32Array(364506923, 1098734284) index="0" unique_id=1245402866]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="castle-window2/castle-window/StaticBody3D" unique_id=1507282092]
+shape = SubResource("ConvexPolygonShape3D_7cx38")
+
+[editable path="castle-door2"]
+[editable path="castle-gate2"]
+[editable path="castle-wall2"]
+[editable path="castle-window2"]

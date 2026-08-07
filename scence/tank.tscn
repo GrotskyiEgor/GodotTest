@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cbjp2ejf2v27"]
+
+[ext_resource type="Script" uid="uid://crb2xwhqhio0r" path="res://scripts/player.gd" id="1_a6g0e"]
+[ext_resource type="ArrayMesh" uid="uid://n4kjq7t74iv7" path="res://assets/tank/14079_WWII_Tank_UK_Cromwell_v1_L2.obj" id="2_i8qh1"]
+[ext_resource type="Script" uid="uid://wykheuma6ptw" path="res://scence/camera.gd" id="3_xj03i"]
+[ext_resource type="AudioStream" uid="uid://chh2hs1otgc5y" path="res://assets/audio/player/hurt.wav" id="3_ycngk"]
+[ext_resource type="AudioStream" uid="uid://cma4yry5kue7q" path="res://assets/audio/player/shot.wav" id="4_dpdvj"]
+[ext_resource type="AudioStream" uid="uid://dcu3s1eakmk3" path="res://assets/audio/player/throw.wav" id="4_sgayf"]
+[ext_resource type="AudioStream" uid="uid://sxftjqs5m6n5" path="res://assets/audio/player/walk.wav" id="5_sgayf"]
+[ext_resource type="AudioStream" uid="uid://dglcknn04n3xk" path="res://assets/audio/player/take.wav" id="6_xj03i"]
+[ext_resource type="AudioStream" uid="uid://bfttn7gmlbjcu" path="res://assets/audio/game/lose.wav" id="7_i8qh1"]
+[ext_resource type="AudioStream" uid="uid://bn3pqh54s2wcm" path="res://assets/audio/game/win.wav" id="8_sgayf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8qh1"]
+
+[node name="Tank" type="CharacterBody3D" unique_id=221053036 groups=["player"]]
+script = ExtResource("1_a6g0e")
+
+[node name="TankModel" type="Node3D" parent="." unique_id=569354158]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="BoatPos" type="Node3D" parent="TankModel" unique_id=1747003300]
+transform = Transform3D(1.1666665, 0, 1.5298985e-08, 0, 1.1666665, 2.520931e-22, 1.5298985e-08, 2.520931e-22, 0.8166666, 0, 0.23121633, -0.017867109)
+
+[node name="ShootPos" type="Node3D" parent="TankModel" unique_id=1107447734]
+transform = Transform3D(0.7, 0, 3.0291993e-08, 0, 0.7, 4.9914443e-22, 9.179392e-09, 1.5125589e-22, 1.617, 0, 0.90014213, -0.5)
+
+[node name="TankModel2" type="MeshInstance3D" parent="TankModel" unique_id=908712301]
+transform = Transform3D(-2.6226834e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 0.6, 4.371139e-08, 1.9106855e-15, 0, -0.88180095, 0)
+mesh = ExtResource("2_i8qh1")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1722561622]
+transform = Transform3D(1.2, 0, 0, 0, 0.908, 0, 0, 0, 1.4878325, 0, 0.45230877, -0.026975539)
+shape = SubResource("BoxShape3D_i8qh1")
+
+[node name="Camera" type="Node3D" parent="." unique_id=1709863705]
+script = ExtResource("3_xj03i")
+
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=1569069089]
+transform = Transform3D(1, 0, 0, 0, 0.34202012, 0.93969256, 0, -0.93969256, 0.34202012, 0, 10, 3.4)
+
+[node name="Sounds" type="Node3D" parent="." unique_id=1122574391]
+
+[node name="Hurt" type="AudioStreamPlayer3D" parent="Sounds" unique_id=630078285]
+stream = ExtResource("3_ycngk")
+
+[node name="Thow" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1092523149]
+stream = ExtResource("4_sgayf")
+volume_db = 5.0
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="Sounds" unique_id=35928743]
+stream = ExtResource("4_dpdvj")
+volume_db = -10.0
+
+[node name="Walk" type="AudioStreamPlayer3D" parent="Sounds" unique_id=890613587]
+stream = ExtResource("5_sgayf")
+volume_db = -10.0
+
+[node name="Take" type="AudioStreamPlayer3D" parent="Sounds" unique_id=2083996803]
+stream = ExtResource("6_xj03i")
+volume_db = -10.0
+
+[node name="Lose" type="AudioStreamPlayer3D" parent="Sounds" unique_id=766264531]
+stream = ExtResource("7_i8qh1")
+volume_db = 7.0
+
+[node name="Win" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1313632267]
+stream = ExtResource("8_sgayf")
+volume_db = 7.0
+
+[node name="SpeedUpTimer" type="Timer" parent="." unique_id=205102614]
+wait_time = 10.0

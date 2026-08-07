@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cbjp2ejf2v27"]
+
+[ext_resource type="Script" uid="uid://crb2xwhqhio0r" path="res://scripts/player.gd" id="1_a6g0e"]
+[ext_resource type="PackedScene" uid="uid://c303f7flgudfa" path="res://assets/kenney_pirate-kit/Models/GLB format/cannon-mobile.glb" id="2_j5bnc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6ia0"]
+
+[node name="Tank" type="CharacterBody3D" unique_id=221053036 groups=["player"]]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_a6g0e")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1270724373]
+transform = Transform3D(1.7, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_t6ia0")
+
+[node name="TankModel" parent="." unique_id=144740504 instance=ExtResource("2_j5bnc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="ShootPos" type="Node3D" parent="TankModel" unique_id=1381523612]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.690088e-08, 0.986, 0.9847431)
+
+[node name="Camera" type="Node3D" parent="." unique_id=1709863705]
+
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=1569069089]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
