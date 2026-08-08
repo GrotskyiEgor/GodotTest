@@ -57,14 +57,26 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction := Vector3.ZERO
 	
-	if Input.is_action_pressed("up"):
-		direction = Vector3(0, 0, -1)
-	elif Input.is_action_pressed("down"):
-		direction = Vector3(0, 0, 1)
-	elif Input.is_action_pressed("left"):
-		direction = Vector3(-1, 0, 0)
-	elif Input.is_action_pressed("right"):
-		direction = Vector3(1, 0, 0)
+	# if Input.is_action_pressed("up"):
+	# 	direction = Vector3(0, 0, -1)
+	# elif Input.is_action_pressed("down"):
+	# 	direction = Vector3(0, 0, 1)
+	# elif Input.is_action_pressed("left"):
+	# 	direction = Vector3(-1, 0, 0)
+	# elif Input.is_action_pressed("right"):
+	# 	direction = Vector3(1, 0, 0)
+
+	var input := Input.get_vector(
+		"ui_left",
+		"ui_right",
+		"ui_up",
+		"ui_down"
+	)
+
+	if abs(input.x) > abs(input.y):
+		direction = Vector3(sign(input.x), 0.0, 0.0)
+	else:
+		direction = Vector3(0.0, 0.0, sign(input.y))
 
 	if direction != Vector3.ZERO and alive:
 		velocity.x = direction.x * (speed + speed_up)
@@ -137,3 +149,11 @@ func shot() -> void:
 	get_parent().add_child(instance)
 	
 	shot_sound.play()
+
+
+func _on_shoot_button_down() -> void:
+	Input.action_press("shot")
+
+
+func _on_shoot_button_up() -> void:
+	Input.action_release("shot")

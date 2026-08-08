@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4j142y6uk3nn"
 path.s3tc="res://.godot/imported/castle-wall.png-32b160d9d0d5b7640339a3e351e400da.s3tc.ctex"
+path.etc2="res://.godot/imported/castle-wall.png-32b160d9d0d5b7640339a3e351e400da.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/kenney_pirate-kit/Previews/castle-wall.png"
-dest_files=["res://.godot/imported/castle-wall.png-32b160d9d0d5b7640339a3e351e400da.s3tc.ctex"]
+dest_files=["res://.godot/imported/castle-wall.png-32b160d9d0d5b7640339a3e351e400da.s3tc.ctex", "res://.godot/imported/castle-wall.png-32b160d9d0d5b7640339a3e351e400da.etc2.ctex"]
 
 [params]
 

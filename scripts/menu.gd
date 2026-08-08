@@ -12,7 +12,7 @@ func _ready() -> void:
 	win_text.visible = false
 	lose_text.visible = false
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	#get_tree().paused = true
 

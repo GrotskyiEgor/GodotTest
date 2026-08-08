@@ -330,6 +330,40 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10, 
 [node name="EnemyTank4" parent="ENV/Enemy" unique_id=1017661083 instance=ExtResource("4_lhetp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.210091, 0.5, -9.119901)
 
+[node name="Control" type="Control" parent="." unique_id=1307417643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="Control" unique_id=173861021]
+process_mode = 1
+layout_mode = 0
+offset_left = 99.0
+offset_top = 481.0
+offset_right = 139.0
+offset_bottom = 521.0
+scale = Vector2(1.8486135, 1.8486135)
+
+[node name="Shoot" type="Button" parent="Control" unique_id=1555663637]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 314.0
+offset_top = 165.0
+offset_right = 520.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "SHOOT"
+
 [node name="Menu" type="Control" parent="." unique_id=1515740903]
 layout_mode = 3
 anchors_preset = 15
@@ -432,6 +466,8 @@ volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
+[connection signal="button_down" from="Control/Shoot" to="ENV/Tank" method="_on_shoot_button_down"]
+[connection signal="button_up" from="Control/Shoot" to="ENV/Tank" method="_on_shoot_button_up"]
 [connection signal="pressed" from="Menu/Restart" to="Menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="Menu/Continue" to="Menu" method="_on_continue_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="Menu" method="_on_quit_pressed"]
