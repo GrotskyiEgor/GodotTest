@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dublrvta6nynf"]
+
+[ext_resource type="Script" uid="uid://d1pgstcpa8r6d" path="res://scripts/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t6ia0"]
+
+[node name="Bullet" type="Area3D" unique_id=1793530593]
+script = ExtResource("1_mkf8s")
+
+[node name="BulletModel" type="CSGSphere3D" parent="." unique_id=670058339]
+
+[node name="BulletCollision" type="CollisionShape3D" parent="." unique_id=1520190455]
+shape = SubResource("SphereShape3D_t6ia0")
