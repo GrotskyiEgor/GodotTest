@@ -3,6 +3,7 @@ extends CharacterBody3D
 var max_hp : int = 100
 var current_hp : int = 0
 var speed : float = 3.0
+var rotation_speed : float = 10.0
 
 var directions = [
 	Vector3.FORWARD,
@@ -18,7 +19,9 @@ var direction
 @export var shoot_delay : float = 4.0
 var can_shoot : bool = true
 var shoot_timer : Timer
-@onready var bullet_pos : Node3D = $TankModel/ShootPos
+
+@onready var bullet_pos1: Node3D = $TankModel/ShootPos
+@onready var bullet_pos2 : Node3D = $TankModel/ShootPos2
 @onready var bullet : PackedScene = preload("res://scence/bullet.tscn")
 
 func _ready() -> void:
@@ -31,24 +34,28 @@ func _ready() -> void:
 	add_child(shoot_timer)
 
 func _physics_process(delta: float) -> void:
-	# var vy = velocity.y
-	# if not is_on_floor():
-	# 	vy += get_gravity().y * delta
+	if not is_on_floor():
+		velocity.y += get_gravity().y * delta
 		
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-	
-	player_mesh.look_at(global_position + direction, Vector3.UP)
-	player_mesh.look_at(global_position + direction, Vector3.UP)
-	
-	#ve
+
+	var target_rotation := atan2(-direction.x, -direction.z)
+
+	player_mesh.rotation.y = lerp_angle(
+		player_mesh.rotation.y,
+		target_rotation,
+		rotation_speed * delta
+	)
+
 	move_and_slide()
 
 	if get_slide_collision_count() > 0:
 		change_direction()
 	
-	if can_shoot and bullet_pos:
-		shoot()
+	if can_shoot and bullet_pos1 and bullet_pos2:
+		shoot(bullet_pos1)
+		shoot(bullet_pos2)
 	
 func change_direction():
 	var new_direction = direction
@@ -57,14 +64,13 @@ func change_direction():
 		new_direction = directions.pick_random()
 
 	direction = new_direction
-	player_mesh.look_at(global_position + direction, Vector3.UP)
-	player_mesh.look_at(global_position + direction, Vector3.UP)
 
-func shoot() -> void:
+func shoot(bullet_pos) -> void:
 	can_shoot = false
 	shoot_timer.start(shoot_delay)
 	
 	var instance = bullet.instantiate()
+
 	instance.shoter = self
 	instance.position = bullet_pos.global_position
 	instance.transform.basis = bullet_pos.global_transform.basis

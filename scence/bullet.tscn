@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdsddoe2mq071"]
 
 [ext_resource type="Script" uid="uid://thm4md5xpnsk" path="res://scripts/bullet.gd" id="1_2g7u4"]
-[ext_resource type="PackedScene" uid="uid://mler71yx2n85" path="res://assets/kenney_pirate-kit/Models/GLB format/cannon-ball.glb" id="1_7hyyo"]
+[ext_resource type="PackedScene" uid="uid://hs511lmcl606" path="res://assets/bullets/TankBulletGrey.glb" id="2_2g7u4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2g7u4"]
 
@@ -9,7 +9,8 @@
 script = ExtResource("1_2g7u4")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1527102610]
-transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("BoxShape3D_2g7u4")
 
-[node name="BulletModel" parent="." unique_id=517148539 instance=ExtResource("1_7hyyo")]
+[node name="BulletModel" parent="." unique_id=236997269 instance=ExtResource("2_2g7u4")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
